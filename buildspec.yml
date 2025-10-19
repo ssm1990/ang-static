@@ -5,7 +5,7 @@ phases:
     runtime-versions:
       nodejs: 18
     commands:
-      - npm install -g @angular/cli@18.2.14
+      - npm install -g @angular/cli@19.0.0
   pre_build:
     commands:
       - echo Build started on `date`
