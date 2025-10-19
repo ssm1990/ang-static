@@ -1,0 +1,29 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 18
+    commands:
+      - npm install -g @angular/cli
+  pre_build:
+    commands:
+      - echo Build started on `date`
+      - echo Installing dependencies...
+      - npm install
+      - echo Running security audit and fixing vulnerabilities...
+      - npm audit fix --force || true
+      - echo Checking for remaining vulnerabilities...
+      - npm audit --audit-level=moderate || true
+  build:
+    commands:
+      - echo Building Angular application...
+      - ng build --configuration production --verbose=false
+  post_build:
+    commands:
+      - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
