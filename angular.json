@@ -13,10 +13,12 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist",
+            "outputPath": "dist/nareshit-angular-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [],
+            "polyfills": [
+              "zone.js"
+            ],
             "tsConfig": "tsconfig.app.json",
             "assets": [],
             "styles": ["src/styles.css"],
